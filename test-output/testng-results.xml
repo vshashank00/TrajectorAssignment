@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-07-08T23:01:50 IST" name="All Test Suite" finished-at="2024-07-08T23:02:00 IST" duration-ms="10086">
+    <groups>
+    </groups>
+    <test started-at="2024-07-08T23:01:50 IST" name="C:/Users/vshas/IdeaProjects/TrajectorAssignment/src/test/java/org/example/Trajector_Medical_Smoke_Suite.java" finished-at="2024-07-08T23:02:00 IST" duration-ms="10086">
+      <class name="org.example.Trajector_Medical_Full_View">
+        <test-method is-config="true" signature="setupBrowser()[pri:0, instance:org.example.Trajector_Medical_Full_View@2aceadd4]" started-at="2024-07-08T23:01:50 IST" name="setupBrowser" finished-at="2024-07-08T23:01:59 IST" duration-ms="8489" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupBrowser -->
+        <test-method signature="test1()[pri:0, instance:org.example.Trajector_Medical_Full_View@2aceadd4]" started-at="2024-07-08T23:01:59 IST" name="test1" finished-at="2024-07-08T23:02:00 IST" duration-ms="1356" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1 -->
+        <test-method is-config="true" signature="close()[pri:0, instance:org.example.Trajector_Medical_Full_View@2aceadd4]" started-at="2024-07-08T23:02:00 IST" name="close" finished-at="2024-07-08T23:02:00 IST" duration-ms="171" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- org.example.Trajector_Medical_Full_View -->
+      <class name="org.example.Trajector_Medical_Mob_View">
+        <test-method is-config="true" signature="setupBrowser()[pri:0, instance:org.example.Trajector_Medical_Mob_View@49e5f737]" started-at="2024-07-08T23:01:50 IST" name="setupBrowser" finished-at="2024-07-08T23:01:58 IST" duration-ms="8154" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupBrowser -->
+        <test-method signature="test1()[pri:0, instance:org.example.Trajector_Medical_Mob_View@49e5f737]" started-at="2024-07-08T23:01:58 IST" name="test1" finished-at="2024-07-08T23:02:00 IST" duration-ms="1696" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1 -->
+        <test-method is-config="true" signature="close()[pri:0, instance:org.example.Trajector_Medical_Mob_View@49e5f737]" started-at="2024-07-08T23:02:00 IST" name="close" finished-at="2024-07-08T23:02:00 IST" duration-ms="181" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- org.example.Trajector_Medical_Mob_View -->
+    </test> <!-- C:/Users/vshas/IdeaProjects/TrajectorAssignment/src/test/java/org/example/Trajector_Medical_Smoke_Suite.java -->
+  </suite> <!-- All Test Suite -->
+</testng-results>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [All Test Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" parallel="instances" name="C:/Users/vshas/IdeaProjects/TrajectorAssignment/src/test/java/org/example/Trajector_Medical_Smoke_Suite.java(failed)">
+    <classes>
+      <class name="org.example.Trajector_Medical_Mob_View">
+        <methods>
+          <include name="test1"/>
+          <include name="close"/>
+          <include name="setupBrowser"/>
+        </methods>
+      </class> <!-- org.example.Trajector_Medical_Mob_View -->
+    </classes>
+  </test> <!-- C:/Users/vshas/IdeaProjects/TrajectorAssignment/src/test/java/org/example/Trajector_Medical_Smoke_Suite.java(failed) -->
+</suite> <!-- Failed suite [All Test Suite] -->

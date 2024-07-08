@@ -9,7 +9,9 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 import java.io.FileInputStream;
@@ -19,6 +21,7 @@ import java.util.Properties;
 
 public class BaseTest {
     public WebDriver driver;
+
     String url="https://www.trajectormedical.com/";
     WebDriver driverInitialize() throws IOException {
         Properties properties=new Properties();
@@ -52,14 +55,15 @@ public class BaseTest {
         return driver;
     }
 
-    @BeforeTest(alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     void setupBrowser() throws IOException {
 
         driver=driverInitialize();
         driver.get(url);
 
+
     }
-    @AfterTest
+    @AfterMethod
     void close(){
         driver.quit();
     }
