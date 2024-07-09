@@ -20,29 +20,29 @@ public class BaseTest {
     public WebDriver driver;
 
     String url="https://www.trajectormedical.com/";
-    WebDriver driverInitialize(String broweser) throws IOException {
+    WebDriver driverInitialize(String browser) throws IOException {
         Properties properties=new Properties();
         FileInputStream fileInputStream=new FileInputStream(System.getProperty("user.dir")+"/src/main/java/BrowserProperties/Browser.properties");
         properties.load(fileInputStream);
-        if(broweser.isEmpty())
-         broweser=System.getProperty("browser")!=null?System.getProperty("browser"):properties.getProperty("Browser");
-        if (broweser.contains("chrome")){
+        if(browser.isEmpty())
+            browser=System.getProperty("browser")!=null?System.getProperty("browser"):properties.getProperty("Browser");
+        if (browser.contains("chrome")){
             ChromeOptions chromeOptions=new ChromeOptions();
             chromeOptions.addArguments("disable-notifications");
             chromeOptions.setAcceptInsecureCerts(true);
-            if(broweser.contains("headless")){
+            if(browser.contains("headless")){
                 chromeOptions.addArguments("headless");
             }
             WebDriverManager.chromedriver().setup();
             driver=new ChromeDriver(chromeOptions);
-            if(broweser.contains("headless")){driver.manage().window().setSize(new Dimension(1440,900));
+            if(browser.contains("headless")){driver.manage().window().setSize(new Dimension(1440,900));
             }
-        }else if(broweser.equalsIgnoreCase("firefox")){
+        }else if(browser.equalsIgnoreCase("firefox")){
             WebDriverManager.firefoxdriver().setup();
             FirefoxOptions firefoxOptions=new FirefoxOptions();
             firefoxOptions.addArguments("disable-notification");
             driver=new FirefoxDriver(firefoxOptions);
-        } else if (broweser.equalsIgnoreCase("edge")) {
+        } else if (browser.equalsIgnoreCase("edge")) {
             WebDriverManager.edgedriver().setup();
             EdgeOptions edgeOptions=new EdgeOptions();
             edgeOptions.addArguments("--disable-features=msHubApps");
@@ -56,8 +56,9 @@ public class BaseTest {
 
     @BeforeMethod(alwaysRun = true)
     @Parameters("browser")
-    void setupBrowser(@Optional("")String broweser) throws IOException {
-        driver=driverInitialize(broweser);
+    void setupBrowser(@Optional("")String browser) throws IOException {
+
+        driver=driverInitialize(browser);
         driver.get(url);
     }
     @AfterMethod
