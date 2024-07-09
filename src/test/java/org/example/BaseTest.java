@@ -9,10 +9,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -23,16 +20,18 @@ public class BaseTest {
     public WebDriver driver;
 
     String url="https://www.trajectormedical.com/";
-    WebDriver driverInitialize() throws IOException {
+    WebDriver driverInitialize(String broweser) throws IOException {
         Properties properties=new Properties();
         FileInputStream fileInputStream=new FileInputStream(System.getProperty("user.dir")+"/src/main/java/BrowserProperties/Browser.properties");
         properties.load(fileInputStream);
-        String broweser=System.getProperty("browser")!=null?System.getProperty("browser"):properties.getProperty("Browser");
+        if(broweser.isEmpty())
+         broweser=System.getProperty("browser")!=null?System.getProperty("browser"):properties.getProperty("Browser");
         if (broweser.contains("chrome")){
             ChromeOptions chromeOptions=new ChromeOptions();
             chromeOptions.addArguments("disable-notifications");
             chromeOptions.setAcceptInsecureCerts(true);
-            if(broweser.contains("headless")){chromeOptions.addArguments("headless");
+            if(broweser.contains("headless")){
+                chromeOptions.addArguments("headless");
             }
             WebDriverManager.chromedriver().setup();
             driver=new ChromeDriver(chromeOptions);
@@ -46,7 +45,7 @@ public class BaseTest {
         } else if (broweser.equalsIgnoreCase("edge")) {
             WebDriverManager.edgedriver().setup();
             EdgeOptions edgeOptions=new EdgeOptions();
-            edgeOptions.addArguments("disable-notification");
+            edgeOptions.addArguments("--disable-features=msHubApps");
             driver=new EdgeDriver(edgeOptions);
         }else
             System.out.println("driver config is not setup");
@@ -56,12 +55,10 @@ public class BaseTest {
     }
 
     @BeforeMethod(alwaysRun = true)
-    void setupBrowser() throws IOException {
-
-        driver=driverInitialize();
+    @Parameters("browser")
+    void setupBrowser(@Optional("")String broweser) throws IOException {
+        driver=driverInitialize(broweser);
         driver.get(url);
-
-
     }
     @AfterMethod
     void close(){

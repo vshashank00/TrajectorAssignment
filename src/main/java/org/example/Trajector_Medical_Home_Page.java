@@ -2,6 +2,7 @@ package org.example;
 
 import Reuse.Resusable;
 import com.github.javafaker.Faker;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -59,9 +60,17 @@ public class Trajector_Medical_Home_Page extends Resusable {
         lastNameField.sendKeys(faker.name().lastName());
         emailField.sendKeys(faker.internet().emailAddress());
         phoneField.sendKeys(faker.phoneNumber().cellPhone());
-        clickable(vetranRadioButton, driver);
         scroll(driver,emailField);
-        vetranRadioButton.click();
+        visible(vetranRadioButton,driver);
+        clickable(vetranRadioButton, driver);
+        try {
+            vetranRadioButton.click();
+        }catch (ElementClickInterceptedException e){
+            scroll(driver,emailField);
+            visible(vetranRadioButton,driver);
+            clickable(vetranRadioButton, driver);
+            vetranRadioButton.click();
+        }
         Assert.assertTrue(vetranRadioButton.isSelected());
         clickable(disabilityRadioButton, driver);
         disabilityRadioButton.click();
